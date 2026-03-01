@@ -84,7 +84,14 @@ function fillForm(row) {
 
   Array.from(form.elements).forEach((el) => {
     if (el.name && row[el.name] !== undefined) {
-      el.value = row[el.name] ?? '';
+      const value = row[el.name];
+
+      if (el.type === 'date' && value) {
+        el.value = String(value).slice(0, 10);
+        return;
+      }
+
+      el.value = value ?? '';
     }
   });
 }
