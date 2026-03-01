@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lobby do CRUD Hotel</title>
+  <link rel="stylesheet" href="/style.css" />
+  <style>
+    .hero {
+      background: linear-gradient(120deg, #0e5ad4 0%, #1f7ae0 60%, #52a7ff 100%);
+      color: #fff;
+      border-radius: 14px;
+      padding: 28px;
+      box-shadow: 0 10px 26px rgba(14, 90, 212, 0.35);
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      margin: 0;
+      max-width: 700px;
+      line-height: 1.5;
+      opacity: 0.95;
+    }
+
+    .lobby-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+    }
+
+    .lobby-card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      background: #fff;
+      border-radius: 12px;
+      padding: 18px;
+      border: 1px solid #e2ebf7;
+      box-shadow: 0 8px 18px rgba(10, 46, 94, 0.08);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .lobby-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 24px rgba(10, 46, 94, 0.14);
+    }
+
+    .lobby-icon {
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+      display: inline-block;
+    }
+
+    .lobby-card h2 {
+      margin: 4px 0 8px;
+      font-size: 1.2rem;
+      color: #0f2a4a;
+    }
+
+    .lobby-card p {
+      margin: 0;
+      color: #5f7389;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <section class="hero">
+      <h1>🏨 Lobby do Sistema</h1>
+      <p>
+        Bem-vindo ao painel principal! Daqui você acessa rapidamente os módulos de
+        <strong>Produtos</strong>, <strong>Quartos</strong>, <strong>Check-in</strong> e
+        <strong>Check-out</strong>.
+      </p>
+    </section>
+
+    <section class="lobby-grid">
+      <a class="lobby-card" href="/produtos.html">
+        <span class="lobby-icon">🛒</span>
+        <h2>Produtos</h2>
+        <p>Gerencie itens de consumo, estoque e preços.</p>
+      </a>
+
+      <a class="lobby-card" href="/quartos.html">
+        <span class="lobby-icon">🛏️</span>
+        <h2>Quartos</h2>
+        <p>Cadastre quartos, tipo, diária e status.</p>
+      </a>
+
+      <a class="lobby-card" href="/checkin.html">
+        <span class="lobby-icon">🧾</span>
+        <h2>Check-in</h2>
+        <p>Registre entradas de hóspedes e períodos.</p>
+      </a>
+
+      <a class="lobby-card" href="/checkout.html">
+        <span class="lobby-icon">💳</span>
+        <h2>Check-out</h2>
+        <p>Conclua hospedagens e pagamentos finais.</p>
+      </a>
+    </section>
+  </div>
+</body>
+</html>
