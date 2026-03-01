@@ -9,6 +9,7 @@
 <body data-entity="checkin" data-id-field="id_checkin">
   <div class="container">
     <div class="nav">
+      <a href="/index.html">Home</a>
       <a href="/produtos.html">Produtos</a>
       <a href="/quartos.html">Quartos</a>
       <a href="/checkin.html">Check-in</a>
@@ -20,9 +21,15 @@
       <h3 id="formTitle">Novo cadastro</h3>
       <form id="crudForm">
         <input type="hidden" id="editId" name="editId" />
+        <p class="small">O ID do check-in é gerado automaticamente pelo banco (IDENTITY).</p>
         <div class="row">
           <div><label>Nome do Hóspede</label><input name="hospede_nome" required /></div>
-          <div><label>ID do Quarto</label><input name="id_quarto" type="number" required /></div>
+          <div>
+            <label>Quarto</label>
+            <select name="id_quarto" required>
+              <option value="">Carregando quartos...</option>
+            </select>
+          </div>
           <div><label>Data de Entrada</label><input name="data_entrada" type="date" required /></div>
           <div><label>Data Saída Prevista</label><input name="data_saida_prevista" type="date" required /></div>
           <div>
