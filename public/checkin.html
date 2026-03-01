@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Check-in</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body data-entity="checkin" data-id-field="id_checkin">
+  <div class="container">
+    <div class="nav">
+      <a href="/produtos.html">Produtos</a>
+      <a href="/quartos.html">Quartos</a>
+      <a href="/checkin.html">Check-in</a>
+      <a href="/checkout.html">Check-out</a>
+    </div>
+
+    <div class="card">
+      <h1>Cadastro de Check-in (tb_checkin)</h1>
+      <h3 id="formTitle">Novo cadastro</h3>
+      <form id="crudForm">
+        <input type="hidden" id="editId" name="editId" />
+        <div class="row">
+          <div><label>Nome do Hóspede</label><input name="hospede_nome" required /></div>
+          <div><label>ID do Quarto</label><input name="id_quarto" type="number" required /></div>
+          <div><label>Data de Entrada</label><input name="data_entrada" type="date" required /></div>
+          <div><label>Data Saída Prevista</label><input name="data_saida_prevista" type="date" required /></div>
+          <div>
+            <label>Status</label>
+            <select name="status_checkin">
+              <option value="Ativo">Ativo</option>
+              <option value="Finalizado">Finalizado</option>
+            </select>
+          </div>
+        </div>
+        <br />
+        <button class="btn-primary" type="submit">Salvar (Incluir/Editar)</button>
+      </form>
+    </div>
+
+    <div class="card">
+      <div class="search-group">
+        <span class="search-icon">🔍</span>
+        <input id="searchInput" placeholder="Pesquisar na tabela" />
+        <button id="btnSearch" class="btn-secondary" type="button">Pesquisar</button>
+        <button id="btnClear" class="btn-secondary" type="button">Limpar</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th><th>Hóspede</th><th>ID Quarto</th><th>Entrada</th><th>Saída Prevista</th><th>Status</th><th>Ações</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>

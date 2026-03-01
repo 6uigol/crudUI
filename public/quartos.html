@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cadastro de Quartos</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body data-entity="quartos" data-id-field="id_quarto">
+  <div class="container">
+    <div class="nav">
+      <a href="/produtos.html">Produtos</a>
+      <a href="/quartos.html">Quartos</a>
+      <a href="/checkin.html">Check-in</a>
+      <a href="/checkout.html">Check-out</a>
+    </div>
+
+    <div class="card">
+      <h1>Cadastro de Quartos (tb_cad_quarto)</h1>
+      <h3 id="formTitle">Novo cadastro</h3>
+      <form id="crudForm">
+        <input type="hidden" id="editId" name="editId" />
+        <div class="row">
+          <div><label>Número do Quarto</label><input name="numero_quarto" required /></div>
+          <div><label>Tipo do Quarto</label><input name="tipo_quarto" required /></div>
+          <div><label>Valor da Diária</label><input name="valor_diaria" type="number" step="0.01" required /></div>
+          <div>
+            <label>Status</label>
+            <select name="status_quarto">
+              <option value="Livre">Livre</option>
+              <option value="Ocupado">Ocupado</option>
+              <option value="Manutenção">Manutenção</option>
+            </select>
+          </div>
+        </div>
+        <br />
+        <button class="btn-primary" type="submit">Salvar (Incluir/Editar)</button>
+      </form>
+    </div>
+
+    <div class="card">
+      <div class="search-group">
+        <span class="search-icon">🔍</span>
+        <input id="searchInput" placeholder="Pesquisar na tabela" />
+        <button id="btnSearch" class="btn-secondary" type="button">Pesquisar</button>
+        <button id="btnClear" class="btn-secondary" type="button">Limpar</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th><th>Número</th><th>Tipo</th><th>Diária</th><th>Status</th><th>Ações</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>
