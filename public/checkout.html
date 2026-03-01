@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Check-out</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body data-entity="checkout" data-id-field="id_checkout">
+  <div class="container">
+    <div class="nav">
+      <a href="/produtos.html">Produtos</a>
+      <a href="/quartos.html">Quartos</a>
+      <a href="/checkin.html">Check-in</a>
+      <a href="/checkout.html">Check-out</a>
+    </div>
+
+    <div class="card">
+      <h1>Cadastro de Check-out (tb_checkout)</h1>
+      <h3 id="formTitle">Novo cadastro</h3>
+      <form id="crudForm">
+        <input type="hidden" id="editId" name="editId" />
+        <div class="row">
+          <div><label>ID Check-in</label><input name="id_checkin" type="number" required /></div>
+          <div><label>Data do Check-out</label><input name="data_checkout" type="date" required /></div>
+          <div><label>Valor Total</label><input name="valor_total" type="number" step="0.01" required /></div>
+          <div><label>Forma de Pagamento</label><input name="forma_pagamento" required /></div>
+          <div><label>Observação</label><input name="observacao" /></div>
+        </div>
+        <br />
+        <button class="btn-primary" type="submit">Salvar (Incluir/Editar)</button>
+      </form>
+    </div>
+
+    <div class="card">
+      <div class="search-group">
+        <span class="search-icon">🔍</span>
+        <input id="searchInput" placeholder="Pesquisar na tabela" />
+        <button id="btnSearch" class="btn-secondary" type="button">Pesquisar</button>
+        <button id="btnClear" class="btn-secondary" type="button">Limpar</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th><th>ID Check-in</th><th>Data Check-out</th><th>Valor</th><th>Pagamento</th><th>Observação</th><th>Ações</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>
