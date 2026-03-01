@@ -9,6 +9,41 @@ const btnClear = document.getElementById('btnClear');
 const formTitle = document.getElementById('formTitle');
 const hiddenId = document.getElementById('editId');
 
+async function loadRelatedOptions() {
+  if (entity === 'checkin') {
+    const quartoSelect = form.querySelector('[name="id_quarto"]');
+    if (!quartoSelect) return;
+
+    const res = await fetch('/api/quartos');
+    const quartos = await res.json();
+
+    quartoSelect.innerHTML = '<option value="">Selecione um quarto</option>';
+    quartos.forEach((quarto) => {
+      const option = document.createElement('option');
+      option.value = quarto.id_quarto;
+      option.textContent = `#${quarto.id_quarto} - Quarto ${quarto.numero_quarto} (${quarto.status_quarto})`;
+      quartoSelect.appendChild(option);
+    });
+    return;
+  }
+
+  if (entity === 'checkout') {
+    const checkinSelect = form.querySelector('[name="id_checkin"]');
+    if (!checkinSelect) return;
+
+    const res = await fetch('/api/checkin');
+    const checkins = await res.json();
+
+    checkinSelect.innerHTML = '<option value="">Selecione um check-in</option>';
+    checkins.forEach((checkin) => {
+      const option = document.createElement('option');
+      option.value = checkin.id_checkin;
+      option.textContent = `#${checkin.id_checkin} - ${checkin.hospede_nome}`;
+      checkinSelect.appendChild(option);
+    });
+  }
+}
+
 async function fetchRows(search = '') {
   const url = search ? `/api/${entity}?search=${encodeURIComponent(search)}` : `/api/${entity}`;
   const res = await fetch(url);
@@ -93,4 +128,5 @@ btnClear.addEventListener('click', () => {
   fetchRows();
 });
 
+loadRelatedOptions();
 fetchRows();
