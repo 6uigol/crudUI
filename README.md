@@ -13,7 +13,4 @@ npm start
 ```
 
 Acesse:
-- http://localhost:3000/produtos.html
-- http://localhost:3000/quartos.html
-- http://localhost:3000/checkin.html
-- http://localhost:3000/checkout.html
+- http://localhost:3000/index.html
